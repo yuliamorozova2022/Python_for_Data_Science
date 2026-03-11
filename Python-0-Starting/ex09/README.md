@@ -2,47 +2,63 @@
 
 A simple package with a function to count elements in a list.
 
-# Usage:
-# 1) building package 
-    python3 -m build 
-# 2) installing package with pip (or pip3)
-    pip install ./dist/ft_package-0.0.1.tar.gz
-    pip install ./dist/ft_package-0.0.1-py3-none-any.whl
-# 3) get info
-    pip show -v ft_package
-# 4) unistall package
-    python3 -m pip uninstall ft_package
+## Usage:
+### 1) building package 
+```bash
+python3 -m build 
+```
+### 2) installing package with pip (or pip3)
+```bash
+pip install ./dist/ft_package-0.0.1.tar.gz
+``` 
+  or
+```bash
+pip install ./dist/ft_package-0.0.1-py3-none-any.whl
+```
+### 3) get info
+```bash
+pip show -v ft_package
+```
+### 4) unistall package
+```bash
+python3 -m pip uninstall ft_package
+```
 
-# If during building there will be message
+## If during building there will be message
     "No module named build"
-# Use this:
-    python3 -m pip install --upgrade pip setuptools wheel build
+## Run this:
+```bash
+python3 -m pip install --upgrade pip setuptools wheel build
+```
 
 
-# Additional info
-pyproject.toml - file for configuring the package:
+## pyproject.toml explanation
+`[build-system]` - section that tells python what to use for building the package
 
-    [build-system] - section that tells python what to use for building the package
+    `requires = ["setuptools", "wheel"]` — list of libraries for building:
     
-    requires = ["setuptools", "wheel"] - list of libraries for building,
-        - setuptools — standard tool for creation of python packages
-        - wheel — tool for building wheel-files (.whl), which are installed by pip
+        `setuptools` — standard tool for creating Python packages
     
-    build-backend = "setuptools.build_meta"  - shows Python, which function/module will be building the package
-        - setuptools.build_meta — modern way of building with setuptools (new standard from PEP 517).
+        `wheel` — tool for building wheel files (.whl), installable via pip
+    
+    `build-backend = "setuptools.build_meta"` — Python module used for building the package (PEP 517 standard)
 
-    next whole section is just metedata for pip, PyPI and pip show:
-    [project]
-    name = "ft_package" - package name for pip list and during installation
-    version = "0.0.1" 
-    description = "A sample test package" - package description available with pip show
-    authors = [
-    {name = "ymorozov", email = "ymorozov@student.42prague.com"}
-    ]
-    readme = "README.md"
-    license = {text = "MIT"} 
-    requires-python = ">=3.10" - minimal Python version package works with.
+`[project]` - section with metedata for pip, PyPI and pip show:
+
+    `name` — package name, shown in pip list and during installation
+
+    `version` — package version
+
+    `description` — short package description, shown in pip show
+
+    `authors` — list of authors with name and email
     
-    this next section is used only by setuptools:
-    [tool.setuptools.packages.find] - this means find all folders with __init__.py to be included to the package
-    where = ["."] - directory where to look for all folders with __init__.py files
+    `readme` — path to README file
+    
+    `license` — license type
+    
+    `requires-python` — minimal Python version required
+
+`[tool.setuptools.packages.find]` - this section is used by setuptools:
+
+    `where = ["."]` — search for all folders containing __init__.py to include in the package
