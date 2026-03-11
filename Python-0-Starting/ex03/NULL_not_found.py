@@ -2,12 +2,16 @@ def NULL_not_found(object: any) -> int:
     if object is None:
         print("Nothing: None <class 'NoneType'>")
     elif isinstance(object, float) and object != object:
+        # isinstance(object, float) - is float AND only after
+        # that object is 'nan' with object != object (nan != nan)
         print("Cheese: nan <class 'float'>")
-    elif object is False and isinstance(object, bool):
+    elif object is False:
+        # bool type by default
+        # important to check this before int case - cos bool is subtype of int
         print("Fake: False <class 'bool'>")
-    elif object == 0 and isinstance(object, int):
+    elif isinstance(object, int) and object == 0:
         print("Zero: 0 <class 'int'>")
-    elif object == '' and isinstance(object, str):
+    elif isinstance(object, str) and object == '':
        print("Empty: <class 'str'>")
     else:
         print("Type not Found")

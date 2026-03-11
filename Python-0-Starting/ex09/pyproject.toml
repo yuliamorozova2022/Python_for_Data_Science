@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ft_package"
+version = "0.0.1"
+description = "A sample test package"
+urls = { "Homepage" = "https://github.com/ymorozov/ft_package" }
+authors = [
+    {name = "ymorozov", email = "ymorozov@student.42prague.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["."]
+

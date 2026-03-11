@@ -1,0 +1,48 @@
+# ft_package
+
+A simple package with a function to count elements in a list.
+
+# Usage:
+# 1) building package 
+    python3 -m build 
+# 2) installing package with pip (or pip3)
+    pip install ./dist/ft_package-0.0.1.tar.gz
+    pip install ./dist/ft_package-0.0.1-py3-none-any.whl
+# 3) get info
+    pip show -v ft_package
+# 4) unistall package
+    python3 -m pip uninstall ft_package
+
+# If during building there will be message
+    "No module named build"
+# Use this:
+    python3 -m pip install --upgrade pip setuptools wheel build
+
+
+# Additional info
+pyproject.toml - file for configuring the package:
+
+    [build-system] - section that tells python what to use for building the package
+    
+    requires = ["setuptools", "wheel"] - list of libraries for building,
+        - setuptools — standard tool for creation of python packages
+        - wheel — tool for building wheel-files (.whl), which are installed by pip
+    
+    build-backend = "setuptools.build_meta"  - shows Python, which function/module will be building the package
+        - setuptools.build_meta — modern way of building with setuptools (new standard from PEP 517).
+
+    next whole section is just metedata for pip, PyPI and pip show:
+    [project]
+    name = "ft_package" - package name for pip list and during installation
+    version = "0.0.1" 
+    description = "A sample test package" - package description available with pip show
+    authors = [
+    {name = "ymorozov", email = "ymorozov@student.42prague.com"}
+    ]
+    readme = "README.md"
+    license = {text = "MIT"} 
+    requires-python = ">=3.10" - minimal Python version package works with.
+    
+    this next section is used only by setuptools:
+    [tool.setuptools.packages.find] - this means find all folders with __init__.py to be included to the package
+    where = ["."] - directory where to look for all folders with __init__.py files
