@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ft_package"
 version = "0.0.1"
 description = "A sample test package"
-urls = { "Homepage" = "https://github.com/ymorozov/ft_package" }
+urls = { "Homepage" = "https://github.com/yuliamorozova2022/Python_for_Data_Science/tree/main/Python-0-Starting/ex09/ft_package" }
 authors = [
     {name = "ymorozov", email = "ymorozov@student.42prague.com"}
 ]
