@@ -1,6 +1,18 @@
-.idea/
-*/__pycache__/
-*/*/__pycache__/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Virtual environments
 venv/
-ex09/dist
-ex09/*.egg-info/
+.env/
+
+# IDEs
+.idea/
+.vscode/
+
+# Build
+dist/
+build/
