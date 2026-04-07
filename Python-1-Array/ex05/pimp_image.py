@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 from load_image import print_img_arr
 
 # You have some restriction operators for each function

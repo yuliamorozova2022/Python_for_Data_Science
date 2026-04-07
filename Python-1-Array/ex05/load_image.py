@@ -1,16 +1,21 @@
+import atexit
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Blocking show registered once here — runs on script exit regardless
+# of which functions were called or in what order.
+atexit.register(plt.show)
 
-def print_img_arr(array, string):
+
+def print_img_arr(array, string, print_array=True):
     """Helper function to print the image with a title."""
-    if array:
+    if print_array:
         print(array)
     plt.figure(string)
     plt.imshow(array)
     plt.axis("off")
-    plt.show(block=False)
+    # plt.show()  # is essential so all image windows will be kept open
 
 
 # np.ndarray - type of return object
@@ -49,5 +54,5 @@ def ft_load(path: str) -> np.ndarray:
     arr = np.array(img)
     print(f"The shape of image is: {arr.shape}")
     # print(arr)
-    print_img_arr(None, "Figure VIII.1: Original")
+    print_img_arr(arr, "Figure VIII.1: Original", False)
     return arr
