@@ -1,4 +1,4 @@
-import pytest
+# import pytest
 from filterstring import calculate_words
 
 
@@ -13,4 +13,3 @@ def test_empty_result():
     """Return empty list if no word matches."""
     assert calculate_words("", 4) == []
     assert calculate_words("Hello world", 94) == []
-

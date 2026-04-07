@@ -17,11 +17,11 @@ def test_list_filter():
 
 def test_none_function():
     """Filter truthy values when function is None."""
-    assert ft_filter(None, [1, 2, 3, 4]) == [1, 2, 3, 4] # all numbers are true
+    assert ft_filter(None, [1, 2, 3, 4]) == [1, 2, 3, 4]  # all nbrs are true
     assert ft_filter(None, [0, 1, False, 2]) == [1, 2]
     # test for None function and set
     result = ft_filter(None, {0, 1, False, 2})
-    assert sorted(result) == [1, 2] # sorted() because set is UNORDERED, each time elements can be at different position
+    assert sorted(result) == [1, 2]  # sorted() because set is UNORDERED
     # test for dictionary, iterated by key
     result_none = ft_filter(None, {0: "a", 1: "b", 2: "c"})
     assert result_none == [1, 2]
@@ -37,7 +37,7 @@ def test_set():
     """Filter set input."""
     data = {1, 2, 3, 4}
     result = ft_filter(is_even, data)
-    assert sorted(result) == [2, 4] # sorted() because set is UNORDERED, each time elements can be at different position
+    assert sorted(result) == [2, 4]  # sorted() because set is UNORDERED
 
 
 def test_dict():
@@ -48,7 +48,7 @@ def test_dict():
 
 def test_string():
     """Filter string input."""
-    assert ft_filter(print, "abc") == [] # print("a") returns None → falsy.
+    assert ft_filter(print, "abc") == []  # print("a") returns None → falsy.
     assert ft_filter(None, "abc") == ["a", "b", "c"]
 
 

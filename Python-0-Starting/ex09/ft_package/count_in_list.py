@@ -17,7 +17,7 @@ def count_in_list(lst, item):
             counter += 1
     return counter
 
-#
+
 # def main():
 #     try:
 #         print(count_in_list(None, 3))

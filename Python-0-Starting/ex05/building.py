@@ -42,6 +42,7 @@ def print_message(arr):
           f"{arr[4]} spaces\n"
           f"{arr[5]} digits")
 
+
 def main():
     """Parse arguments, prompt if necessary, and call helper functions.
 
@@ -69,19 +70,19 @@ def main():
         else:  # exactly two elements
             text = sys.argv[1]
 
-        # omit blank line if input didn't end in newline (keeps output separate)
+        # omit blank line if input didn't end in newline- keeps output separate
         if not text.endswith("\n"):
             print()
         print_message(calculate_characters(text))
 
     except (Exception, KeyboardInterrupt) as e:
         # catch IOError, KeyboardInterrupt, bugs, etc.;
-        # newline in case the interrupted input left the cursor on the same line
+        # '\n' in case the interrupted input left the cursor on the same line
         print()
         # only include the exception message if it is non‑empty
         msg = "Unexpected error"
         if e:
-            msg += f": {e}"
+            msg += f": {e}."
         print(msg)
         sys.exit(1)
 

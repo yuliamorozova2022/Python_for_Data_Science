@@ -1,18 +1,19 @@
 '''The yield keyword turns a function into a function generator.
     The function generator returns an iterator.
-    - The code inside the function is not executed when they are first called, but are divided 
-    into steps, one step for each yield, and each step is only executed when iterated upon.
-    - Unlike the return keyword which stops further execution of the function, the yield keyword 
-    returns the result so far, and continues to the next step.
+    - The code inside the function is not executed when they are first called,
+    but are divided into steps, one step for each yield, and each step is only
+    executed when iterated upon.
+    - Unlike the return keyword which stops further execution of the function,
+    the yield keyword returns the result so far and continues to the next step.
     - The return value will be a list of values, one item for each yield.
 '''
 import os
 
 
-def ft_tqdm(lst: range)-> None:
+def ft_tqdm(lst: range) -> None:
     """Function that reproduces tqdm progress bar"""
     try:
-        it = iter(lst)
+        iter(lst)
     except TypeError:
         raise TypeError(f"\'{type(lst).__name__}\' object is not iterable")
     total = len(lst)
@@ -20,7 +21,8 @@ def ft_tqdm(lst: range)-> None:
         # enumerate(lst, 1) - so visible progress starts from 1 and not 0,
         # enumerate returns pair (index; value)
         percent = int((i / total) * 100)
-        bar_length = os.get_terminal_size().columns - 42 # 42 is space for text info, selected manually
+        bar_length = os.get_terminal_size().columns - 42
+        # 42 is space for text info, selected manually
         filled = int(bar_length * i / total)
         if filled == 0:
             bar = ">" + "-" * (bar_length - 1)
@@ -32,6 +34,6 @@ def ft_tqdm(lst: range)-> None:
         # \r moves cursor to the beginning of the line on EACH iteration
         # flush=True forces the line to be printed immediately
         # end='' prevents from adding a new line
-        # EACH iteration OVERWRITES the previous text on the screen on the same line
+        # EACH iteration OVERWRITES previous text on screen on the same line
         yield item
     print()

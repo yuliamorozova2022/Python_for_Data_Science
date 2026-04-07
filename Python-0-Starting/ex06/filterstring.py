@@ -1,17 +1,19 @@
 import sys
-from ft_filter import ft_filter
+# from ft_filter import ft_filter
+
 
 def calculate_words(text, number):
     """
-   Returns a list of words in 'text' with length greater than 'number'.
-   :param text: str - input string
-   :param number: int - minimum length
-   :return: list of words
-   """
+    Returns a list of words in 'text' with length greater than 'number'.
+    :param text: str - input string
+    :param number: int - minimum length
+    :return: list of words
+    """
     # split the string into words
     words = text.split()
     # use lambda and ft_filter to filter words
-    # return ft_filter(lambda w: len(w) > number, words) # usage of previously implemented function
+    # return ft_filter(lambda w: len(w) > number, words)
+    # usage of previously implemented function
     return [w for w in words if (lambda x: len(x) > number)(w)]
     # w for w in words if (Lambda function) - List comprehension
     # (lambda x: len(x) > number) - lambda declaration
