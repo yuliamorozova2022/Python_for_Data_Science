@@ -1,4 +1,5 @@
-def give_bmi(height: list[int | float], weight: list[int | float])-> list[int | float]:
+def give_bmi(height: list[int | float],
+             weight: list[int | float]) -> list[int | float]:
     """Function to calculate the bmi given the height and weight
     :param height: list of heights in centimeters
     :param weight: list of weights in kilograms
@@ -18,7 +19,7 @@ def give_bmi(height: list[int | float], weight: list[int | float])-> list[int | 
     return bmi
 
 
-def apply_limit(bmi: list[int | float], limit: int)-> list[bool]:
+def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """Function that applies the given limit to the given bmi array.
     :param bmi: list of bmi values
     :param limit: maximum bmi value

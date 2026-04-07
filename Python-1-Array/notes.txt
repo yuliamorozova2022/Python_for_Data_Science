@@ -1,0 +1,9 @@
+for this block is neccessary to install:
+PILLOW - library for work with images
+    python3 -m pip install Pillow
+
+NUMPY - library for work with large, multi-dimensional arrays
+    python3 -m pip install numpy
+
+MATPLOTLIB - library for creating static, animated, and interactive visualizations
+    python3 -m pip install matplotlib
