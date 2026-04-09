@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from load_image import print_img_arr
 
 # You have some restriction operators for each function
@@ -11,6 +10,7 @@ def ft_invert(array) -> np.ndarray:
     # restriction operators: =, +, -, *
     if array.size == 0:
         return array
+    # Invert the image by subtracting each pixel value from 255 (dark -> light)
     result = 255 - array
     print_img_arr(result, "Figure VIII.2: Invert")
     return result
@@ -24,7 +24,12 @@ def ft_red(array) -> np.ndarray:
     # restriction operators: =, *
     if array.size == 0:
         return array
+    # multiplying the whole array by [1, 0, 0] will keep onlythe red
+    # channel values, setting green and blue to 0 in one shot.
     result = array * np.array([[[1, 0, 0]]], dtype=array.dtype)
+    # [np.array([[[1, 0, 0]]], dtype=array.dtype)] creates the mask with uint8
+    # values instead of the default int64 (-> result = array * [[[1, 0, 0]]])
+    # pixel values must be whole numbers 0–255, so uint8 is required
     print_img_arr(result, "Figure VIII.3: Red")
     return result
 
@@ -37,9 +42,11 @@ def ft_green(array) -> np.ndarray:
     # restriction operators: =, -
     if array.size == 0:
         return array
+    # Copies the array, so original array remains unchanged, then zeroes red
+    # and blue by subtracting each channel from itself.
     result = array.copy()
-    result[:, :, 0] = result[:, :, 0] - result[:, :, 0]
-    result[:, :, 2] = result[:, :, 2] - result[:, :, 2]
+    result[:, :, 0] = result[:, :, 0] - result[:, :, 0]  # zeroes red channel
+    result[:, :, 2] = result[:, :, 2] - result[:, :, 2]  # zeroes blue channel
     print_img_arr(result, "Figure VIII.4: Green")
     return result
 
@@ -52,6 +59,8 @@ def ft_blue(array) -> np.ndarray:
     # restriction operators: =
     if array.size == 0:
         return array
+    # Copies the array, so original array remains unchanged and directly
+    # assigns 0 to the red and green channels.
     result = array.copy()
     result[:, :, 0] = 0
     result[:, :, 1] = 0

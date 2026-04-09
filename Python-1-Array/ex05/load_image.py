@@ -38,16 +38,6 @@ def ft_load(path: str) -> np.ndarray:
         print(f"Error: image format '{img.format}' is not supported.")
         return np.array([])
 
-    # in PIL img.size has format (WIDTH, HEIGHT), but for task
-    # height has to be printed first
-    # that's why size[::-1] is used - to revert order (height, width)
-
-    # (3,) is appended to indicate RGB channels. (3,) is a tuple;
-    # (3) alone is an int and cannot be concatenated with a tuple
-    # (will cause TypeError)
-    # (1,) or (3,) is specific syntax for tuple with only one element
-    # print(f"The shape of image is: {img.size[::-1] + (3,)}")
-
     # convertion to RGB just to be sure
     img = img.convert("RGB")
     # convertion to numpy array
